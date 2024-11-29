@@ -1,0 +1,4 @@
+{
+  "faultProcessing_alarmScanFrequency": 5,
+  "faultProcessing_correlationScanFrequency": 120
+}
