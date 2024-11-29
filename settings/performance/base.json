@@ -1,7 +1,7 @@
 {
-  "rawPerformanceRetrievalPeriod": 2,
-  "serviceRawPerformanceRetrievalPeriod": 2,
-  "oneHourPerformanceRetrievalPeriod": 14,
-  "serviceOneHourPerformanceRetrievalPeriod": 14,
-  "performanceCollectionPeriod": "MIN_7_5"
+  "rawPerformanceRetrievalPeriod": "PM_RAW_RETRIEVAL",
+  "serviceRawPerformanceRetrievalPeriod": "SPM_RAW_RETRIEVAL",
+  "oneHourPerformanceRetrievalPeriod": "PM_ONE_HOUR_RETRIEVAL",
+  "serviceOneHourPerformanceRetrievalPeriod": "SPM_ONE_HOUR_RETRIEVAL",
+  "performanceCollectionPeriod": "PM_COLLECTION_FREQUENCY"
 }
