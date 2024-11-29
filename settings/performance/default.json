@@ -1,0 +1,7 @@
+{
+  "rawPerformanceRetrievalPeriod": 2,
+  "serviceRawPerformanceRetrievalPeriod": 2,
+  "oneHourPerformanceRetrievalPeriod": 14,
+  "serviceOneHourPerformanceRetrievalPeriod": 14,
+  "performanceCollectionPeriod": "MIN_7_5"
+}
