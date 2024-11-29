@@ -1,0 +1,27 @@
+{
+  "genericDataSettings": {
+    "logTruncationTime": "LOG_RETENTION_TIME",
+    "discoveryLogRetention": "DISCOVERY_LOG_RETENTION",
+    "userActivityLogRetentionPeriod": "ACTIVITY_LOG_RETENTION"
+  },
+  "faultDataSettings": {
+    "faultDataRetentionPeriod": "FM_DATA_RETENTION",
+    "faultMigrationBatchSize": "FM_MIGRATION_BATCH_SIZE"
+  },
+  "performanceDataSettings": {
+    "performance": {
+      "raw": "PM_RAW_RETENTION",
+      "oneDay": "PM_ONE_DAY_RETENTION",
+      "oneHour": "PM_ONE_HOUR_RETENTION"
+    },
+    "service": {
+      "oneHour": "SPM_ONE_HOUR_RETENTION",
+      "oneDay": "SPM_ONE_DAY_RETENTION",
+      "raw": "SPM_RAW_RETENTION",
+    },
+    "sla": {
+      "raw": "SLA_RAW_RETENTION",
+      "oneDay": "SLA_ONE_DAY_RETENTION",
+    }
+  }
+}
