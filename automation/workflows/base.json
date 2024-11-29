@@ -1,0 +1,124 @@
+[
+  {
+    "name": "New Workflow",
+    "description": "Workflow to set flapping of Alarm to true, If (lastReceivedTime-receivedTime) > x milli secs and count > Y Count",
+    "triggerName": "UAA 1 min Trigger",
+    "mode": "ENABLE",
+    "version": 1,
+    "domain": {
+      "name": "Default",
+      "id": "4b6e43a1-e797-4092-9ff1-e5b07411d2e3"
+    },
+    "executionSchedule": {
+      "createdTime": "2015-08-11T15:04:05.999999Z",
+      "startDate": null,
+      "activeDuration": null,
+      "recurrence": {
+        "type": "ALWAYS_ON",
+        "start": null,
+        "end": null
+      }
+    },
+    "successors": [
+      {
+        "reentrant": false,
+        "commentOnReentrant": false,
+        "component": {
+          "category": "workflow-default-filter",
+          "name": "Workflow Data Set",
+          "componentType": "FILTER",
+          "id": "ALARM",
+          "expression": "{\"exp\":{\"log\":{\"o\":\"AND\",\"args\":[{\"comp\":{\"c\":\"centina.sa.model.fault.Alarm\",\"p\":\"count\",\"o\":\"GREATER_THAN\",\"v\":\"5\"}},{\"comp\":{\"c\":\"centina.sa.model.fault.Alarm\",\"p\":\"cleared\",\"o\":\"EQUALS\",\"v\":\"false\"}},{\"comp\":{\"c\":\"centina.sa.model.fault.Alarm\",\"p\":\"flapping\",\"o\":\"EQUALS\",\"v\":\"false\"}}]}}}",
+          "objectType": "ALARM",
+          "isIteratorEnabled": true,
+          "dataSetItem": "AllAlarmsItem",
+          "dataSet": "AllAlarms",
+          "isAdvancedQuery": false,
+          "fetchLimit": 100,
+          "sortOrder": "[]",
+          "successors": [],
+          "newId": ""
+        },
+        "successors": [
+          {
+            "reentrant": false,
+            "commentOnReentrant": false,
+            "component": {
+              "name": "Time difference json",
+              "componentType": "ACTION",
+              "template": false,
+              "inputFieldMap": "{\"timediffe\":\"NUMBER\"}",
+              "workflowActionObjectType": "PLAIN_JSON",
+              "type": "createjson",
+              "outputReference": "Timediff",
+              "category": "workflow-create-object-action"
+            },
+            "successors": [],
+            "newId": null
+          },
+          {
+            "reentrant": false,
+            "commentOnReentrant": false,
+            "component": {
+              "name": "Set Time difference betweenReceivedtime and last receivedtime",
+              "componentType": "ACTION",
+              "template": false,
+              "propertyMap": "{\"timediffe\":\"$$UtilAction(findtimedifference,$AllAlarmsItem.lastReceivedTime,$AllAlarmsItem.receivedTime)\"}",
+              "inputReference": "Timediff",
+              "type": "setproperty",
+              "autoSet": false,
+              "category": "workflow-set-property-action"
+            },
+            "successors": [],
+            "newId": null
+          },
+          {
+            "reentrant": false,
+            "commentOnReentrant": false,
+            "component": {
+              "name": "IF time diffence between lastreceved time and received time is greater than 90000 ms",
+              "componentType": "FILTER",
+              "expression": "{\"exp\":{\"comp\":{\"c\":\"\",\"p\":\"timediffe\",\"o\":\"GREATER_THAN\",\"v\":\"90000\",\"varName\":\"Timediff\",\"propType\":\"NUMBER\"}}}",
+              "category": "workflow-filter"
+            },
+            "successors": [
+              {
+                "reentrant": false,
+                "commentOnReentrant": false,
+                "component": {
+                  "name": "Set Flapping true",
+                  "componentType": "ACTION",
+                  "template": false,
+                  "propertyMap": "{\"flapping\":\"true\"}",
+                  "inputReference": "AllAlarmsItem",
+                  "type": "setproperty",
+                  "autoSet": false,
+                  "category": "workflow-set-property-action"
+                },
+                "successors": [],
+                "newId": null
+              },
+              {
+                "reentrant": false,
+                "commentOnReentrant": false,
+                "component": {
+                  "name": "save alarm",
+                  "componentType": "ACTION",
+                  "template": false,
+                  "persistObjectType": "ALARM",
+                  "inputReference": "AllAlarmsItem",
+                  "type": "persist",
+                  "category": "workflow-persist-action"
+                },
+                "successors": [],
+                "newId": null
+              }
+            ],
+            "newId": null
+          }
+        ]
+      }
+    ],
+    "commitMessage": "Create"
+  }
+]
