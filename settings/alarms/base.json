@@ -1,0 +1,74 @@
+{
+  "faultProcessing": {
+    "enableNonAlarmedEventsProcessing": true,
+    "isdefaultAlarmThresholdPolicyEnabled": true,
+    "enableAlarmDeduplication": false,
+    "hideAllClearedAlarms": false,
+    "hideAcknowledgedClearedAlarms": false,
+    "clearedAlarmPersistencePeriod": 14000,
+    "enableFlappingAlarms": false,
+    "manuallyClearFlappingAlarms": false,
+    "alarmScanFrequency": 1,
+    "correlationScanFrequency": 60,
+    "serviceImpactAnalysisExecutorThreads": 1,
+    "calculateAlarmDurationUsingReceivedTime": true,
+    "calculateAlarmDurationUsingRaiseTime": false,
+    "enableRootCauseAnalysis": false,
+    "rcaScanPeriod": 1
+  },
+  "faultEmphasis": {
+    "rowHighlighting": {
+      "rowHighlightingType": "SINGLE_COLUMN",
+      "minimumRowHighlightingPriority": "HIGH",
+      "minimumRowHighlightingSeverity": "MINOR"
+    },
+    "rowBlinking": {
+      "rowBlinkType": "BLINK_BASED_ON_SEVERITY",
+      "minimumRowBlinkPriority": "HIGH",
+      "minimumRowBlinkSeverity": "MINOR",
+      "blinkEntireRow": false,
+      "rowBlinkDisableOptions": [
+        "ACKNOWLEDGED",
+        "DEFERRED",
+        "SUPPRESSED"
+      ]
+    },
+    "rowBoldingCorrelatedAlarms": {
+      "enableBoldfaceForCorrelatedAlarms": false
+    },
+    "rowDeemphasis": {
+      "deEmphasizeOnAcknowledgement": true,
+      "deEmphasizeType": "REMOVE_COLORING"
+    },
+    "rowBolding": {
+      "rowBoldingType": "NO_BOLDING",
+      "minimumRowBoldingPriority": "URGENT",
+      "minimumRowBoldingSeverity": "CRITICAL"
+    }
+  },
+  "others": {
+    "serviceSettings": {
+      "enableAutoCreateEndPoints": true,
+      "enableAutoCreateServices": true
+    },
+    "endpointHighlighting": {
+      "enableEndPointHighlightingBasedOnAlarmSeverity": false
+    },
+    "discardLinkdownAlarms": {
+      "discardLinkdownAlarmsOnInactiveInterfaces": true,
+      "interfaceInactivityDurationInDays": 2
+    },
+    "userActivityLogSetting": {
+      "enableRaiseUserActivityLogsAsEvents": false
+    },
+    "audibleAlarmNotificationSettings": {
+      "audibleAlarmNotificationEnabled": true,
+      "isSettingsConfigurablePerUser": false
+    },
+    "raiseLossOfCommunicationAlarmOn": {
+      "isIoException": true,
+      "isKeepAliveFailure": true,
+      "isCommunicationFailure": true
+    }
+  }
+}
