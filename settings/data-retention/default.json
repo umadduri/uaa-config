@@ -1,0 +1,27 @@
+{
+  "genericDataSettings": {
+    "logTruncationTime": "2015-08-11T15:04:05.999999Z",
+    "discoveryLogRetention": 11,
+    "userActivityLogRetentionPeriod": 90
+  },
+  "faultDataSettings": {
+    "faultDataRetentionPeriod": 90,
+    "faultMigrationBatchSize": 5120
+  },
+  "performanceDataSettings": {
+    "performance": {
+      "raw": 2,
+      "oneDay": 340,
+      "oneHour": 14
+    },
+    "service": {
+      "oneHour": 14,
+      "oneDay": 340,
+      "raw": 45
+    },
+    "sla": {
+      "raw": 45,
+      "oneDay": 340
+    }
+  }
+}
